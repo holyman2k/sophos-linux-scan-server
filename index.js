@@ -8,7 +8,7 @@ const path = require('path');
 
 const fileFolder = "files";
 
-const hostname = '172.16.160.132';
+const hostname = 'localhost;
 const port = 3000;
 
 const server = http.createServer((req, res) => {
