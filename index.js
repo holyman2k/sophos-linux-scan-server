@@ -8,8 +8,10 @@ const path = require('path');
 
 const fileFolder = "files";
 
-const hostname = 'localhost;
+const hostname = 'localhost';
 const port = 3000;
+
+const scanner = "/opt/sophos-av/bin/savscan -ss -archive -mime -oe -tnef -pua -suspicious";
 
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
@@ -47,7 +49,6 @@ server.listen(port, hostname, () => {
 });
 
 function scan(file, callback) {
-    const scanner = "/opt/sophos-av/bin/savscan -ss -archive -mime -oe -tnef -pua -suspicious";
     const command = [`${scanner} ${file}`];
     cmd.get(command, function (err, data, stderr) {
         console.log("scan result:", data);
